@@ -92,31 +92,23 @@ BusinessLogicLayer --> PersistenceLayer : Database operations
 
 ------
 
+TASK 1 – Business Logic Layer
+Overview
 
-# TASK 1 -Business Logic Layer
+This document explains the Business Logic Layer of the HBnB application. It includes a detailed UML class diagram that represents the core entities in the system, along with their attributes, methods, and relationships.
 
-   ## Overview
-   
-      This document describes the **Business Logic layer** of the HBnB application. It provides a detailed UML 
-      class diagram representing the core entities of the system, their attributes, methods, and relationships.
-      The main goal is to clearly model how the business logic of the application is structured and how the main 
-      entities interact with each other.
-   
----
-   
-   ## Business Logic Layer
-   
-      The Business Logic layer contains the core entities of the application:
-      - User
-      - Place
-      - Review
-      - Amenity
-      These entities define the main functionality of the system and enforce business rules.
-   
----
+The objective is to provide a clear model of how the application’s business logic is organized and how the main entities interact with one another.
 
-## Class Diagram
+Business Logic Layer
 
+The Business Logic Layer is responsible for implementing the core functionality of the application. It contains the primary entities:
+
+User
+Place
+Review
+Amenity
+
+These entities define the system’s behavior and ensure that all business rules and validations are properly enforced.
 ```mermaid
 classDiagram
     class BaseModel {
@@ -178,15 +170,26 @@ classDiagram
 ---
 
 
-# TASK 2 - API Calls
+TASK 2 – API Calls
+Overview
 
-   ## Overview
-      This document shows 2 main API flows in the HBnB application using sequence diagrams.  
-      Each diagram illustrates how the Presentation, Business Logic, and Persistence layers interact.
-   
----
+This document presents two key API workflows in the HBnB application using sequence diagrams.
+Each diagram demonstrates how the Presentation Layer, Business Logic Layer, and Persistence Layer communicate during different operations.
 
-# User Registration
+The goal is to visualize the flow of requests and responses across the system.
+
+User Registration
+
+This sequence diagram describes the process of registering a new user in the system.
+
+Flow Description:
+The user sends a registration request through the Presentation Layer (API).
+The request is forwarded to the Facade in the Business Logic Layer.
+The Business Logic Layer validates the input data (e.g., email, password).
+If the data is valid, a new User object is created.
+The request is passed to the Persistence Layer.
+The UserRepository stores the new user in the database.
+A success response is returned back through all layers to the user.
 
 ```mermaid
 sequenceDiagram
