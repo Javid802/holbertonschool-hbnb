@@ -1,71 +1,60 @@
-# HBnB – Technical Documentation  
+HBnB – Technical Documentation
+TASK 0 - High-Level Package Diagram
+Overview
 
-## TASK 0 - High-Level Package Diagram  
+This document outlines a high-level package diagram of the HBnB Evolution application. It explains the three-layer architecture and demonstrates how these layers interact through the use of the Facade design pattern.
 
----
+The goal is to give a clear and structured understanding of the system’s organization, its main components, and how they collaborate.
 
-## Overview  
-This document presents a high-level package diagram of the HBnB Evolution application. It describes a three-layer architecture and illustrates how these layers communicate using the Facade design pattern.  
+Architecture Overview
 
-The purpose of this documentation is to provide a clear understanding of the system structure, its components, and how different parts interact with each other.
+The HBnB application follows a layered architecture composed of three primary layers:
 
----
+Presentation Layer
+Business Logic Layer
+Persistence Layer
 
-## Architecture Overview  
-The HBnB application is designed using a layered architecture consisting of three main layers:  
+Each layer has a distinct role and communicates with others in a controlled and well-defined manner.
 
-1. Presentation Layer  
-2. Business Logic Layer  
-3. Persistence Layer  
+Layer Descriptions
+1. Presentation Layer
 
-Each layer has a specific responsibility and interacts with other layers in a structured and controlled manner.
+This layer serves as the entry point for user interaction. It includes API endpoints and service interfaces responsible for handling incoming requests.
 
----
+Whenever a user performs an action, the request is first processed here and then forwarded to the system through the Facade.
 
-## Layer Descriptions  
+2. Business Logic Layer
 
-### 1. Presentation Layer  
-This layer represents the interface between the user and the system. It includes API endpoints and services that handle incoming user requests.  
+This layer contains the core functionality of the application. It defines the main entities:
 
-When a user performs an action, the request is received in this layer and passed through the Facade.
+User
+Place
+Review
+Amenity
 
----
-### 2. Business Logic Layer  
-This layer contains the core logic of the application. It includes the main entities:  
+Its responsibilities include:
 
-- User  
-- Place  
-- Review  
-- Amenity  
+enforcing business rules
+validating data
+managing the overall behavior of the application
+3. Persistence Layer
 
-Responsibilities include applying business rules, validating data, and controlling application behavior.
+This layer handles data storage and retrieval operations. It interacts directly with the database.
 
----
+It includes the following repositories:
 
-### 3. Persistence Layer  
-This layer is responsible for storing and retrieving data from the database.  
+UserRepository
+PlaceRepository
+ReviewRepository
+AmenityRepository
+Facade Pattern
 
-It includes:  
-- UserRepository  
-- PlaceRepository  
-- ReviewRepository  
-- AmenityRepository  
+The Facade acts as a central interface between layers, simplifying communication and hiding internal complexity.
 
----
-
-## Facade Pattern  
-
-The Facade acts as an intermediary between layers and provides a unified interface.
-
-### Benefits:  
-- Single entry point  
-- Reduced complexity  
-- Improved maintainability  
-
----
-
-## Package Diagram
-
+Advantages:
+Provides a single access point to the system
+Reduces system complexity
+Improves maintainability and scalability
 ```mermaid
 classDiagram
 
